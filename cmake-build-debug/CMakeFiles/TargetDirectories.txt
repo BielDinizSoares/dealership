@@ -1,0 +1,3 @@
+/home/gabriel/2024.2/CSI429/dealership/cmake-build-debug/CMakeFiles/dealership.dir
+/home/gabriel/2024.2/CSI429/dealership/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/gabriel/2024.2/CSI429/dealership/cmake-build-debug/CMakeFiles/rebuild_cache.dir
