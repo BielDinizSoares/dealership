@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include <time.h>
 #include "car.h"
-
 #include <math.h>
 
 
