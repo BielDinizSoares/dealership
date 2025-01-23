@@ -5,13 +5,6 @@
 #include <math.h>
 #include <time.h>
 
-typedef struct {
-    int id;
-    char name[50];
-    char email[50];
-    char phone[20];
-} TClient;
-
 int client_register_size() {
     return sizeof(int)         // id
            + sizeof(char) * 50 // name
@@ -19,7 +12,7 @@ int client_register_size() {
            + sizeof(char) * 20; // phone
 }
 
-// Cria um cliente
+
 TClient *client(int id, char *name, char *email, char *phone) {
     TClient *client = (TClient *)malloc(sizeof(TClient));
     if (client) memset(client, 0, sizeof(TClient));
@@ -30,7 +23,6 @@ TClient *client(int id, char *name, char *email, char *phone) {
     return client;
 }
 
-// Salva um cliente no arquivo
 void save_client(TClient *client, FILE *out) {
     fwrite(&client->id, sizeof(int), 1, out);
     fwrite(client->name, sizeof(char), 50, out);
@@ -44,7 +36,6 @@ int clients_file_size(FILE *file) {
     return size;
 }
 
-// Lê um cliente do arquivo
 TClient *read_client(FILE *in) {
     TClient *client = (TClient *)malloc(sizeof(TClient));
     if (0 >= fread(&client->id, sizeof(int), 1, in)) {
@@ -57,7 +48,6 @@ TClient *read_client(FILE *in) {
     return client;
 }
 
-// Imprime as informações de um cliente
 void print_client(TClient *client) {
     printf("**********************************************\n");
     printf("Client ID: %d\n", client->id);

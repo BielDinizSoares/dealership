@@ -67,6 +67,18 @@ build CMakeFiles/dealership.dir/client.c.o: C_COMPILER__dealership_unscanned_Deb
   OBJECT_DIR = CMakeFiles/dealership.dir
   OBJECT_FILE_DIR = CMakeFiles/dealership.dir
 
+build CMakeFiles/dealership.dir/sequentialSearch.c.o: C_COMPILER__dealership_unscanned_Debug /home/gabriel/2024.2/CSI429/dealership/sequentialSearch.c || cmake_object_order_depends_target_dealership
+  DEP_FILE = CMakeFiles/dealership.dir/sequentialSearch.c.o.d
+  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles/dealership.dir
+  OBJECT_FILE_DIR = CMakeFiles/dealership.dir
+
+build CMakeFiles/dealership.dir/BinarySearch.c.o: C_COMPILER__dealership_unscanned_Debug /home/gabriel/2024.2/CSI429/dealership/BinarySearch.c || cmake_object_order_depends_target_dealership
+  DEP_FILE = CMakeFiles/dealership.dir/BinarySearch.c.o.d
+  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles/dealership.dir
+  OBJECT_FILE_DIR = CMakeFiles/dealership.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target dealership
@@ -75,7 +87,7 @@ build CMakeFiles/dealership.dir/client.c.o: C_COMPILER__dealership_unscanned_Deb
 #############################################
 # Link the executable dealership
 
-build dealership: C_EXECUTABLE_LINKER__dealership_Debug CMakeFiles/dealership.dir/main.c.o CMakeFiles/dealership.dir/car.c.o CMakeFiles/dealership.dir/client.c.o
+build dealership: C_EXECUTABLE_LINKER__dealership_Debug CMakeFiles/dealership.dir/main.c.o CMakeFiles/dealership.dir/car.c.o CMakeFiles/dealership.dir/client.c.o CMakeFiles/dealership.dir/sequentialSearch.c.o CMakeFiles/dealership.dir/BinarySearch.c.o
   FLAGS = -g
   OBJECT_DIR = CMakeFiles/dealership.dir
   POST_BUILD = :

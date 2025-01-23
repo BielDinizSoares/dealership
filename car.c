@@ -3,6 +3,7 @@
 #include <time.h>
 #include "car.h"
 #include <math.h>
+#include <stdio.h>
 
 
 int car_register_size() {

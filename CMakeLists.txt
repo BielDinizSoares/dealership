@@ -3,4 +3,8 @@ project(dealership C)
 
 set(CMAKE_C_STANDARD 11)
 
-add_executable(dealership main.c car.c car.h client.c client.h)
+add_executable(dealership main.c car.c car.h client.c client.h
+        sequentialSearch.c
+        sequentialSearch.h
+        BinarySearch.c
+        BinarySearch.h)

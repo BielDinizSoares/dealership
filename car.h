@@ -11,7 +11,9 @@ typedef struct Car {
   double weight;
 }TCar;
 
+
 TCar *car(int id, double price, char *name, char *brand, double weight);
+int car_register_size();
 void saveCar(TCar *car, FILE *out);
 int cars_file_size(FILE *file);
 TCar *readCar(FILE *in);
