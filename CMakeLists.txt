@@ -7,4 +7,8 @@ add_executable(dealership main.c car.c car.h client.c client.h
         sequentialSearch.c
         sequentialSearch.h
         BinarySearch.c
-        BinarySearch.h)
+        BinarySearch.h
+        utils.c
+        utils.h
+        operations.c
+        operations.h)

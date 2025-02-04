@@ -1,5 +1,5 @@
-#ifndef CAR_H_INCLUDED
-#define CAR_H_INCLUDED
+#ifndef CARS_H_INCLUDED
+#define CARS_H_INCLUDED
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -9,6 +9,7 @@ typedef struct Car {
   char name[50];
   char brand[20];
   double weight;
+  int idOwner;
 }TCar;
 
 
@@ -19,9 +20,8 @@ int cars_file_size(FILE *file);
 TCar *readCar(FILE *in);
 void printCar(TCar *car);
 void createCarsDatabase(FILE *out, int size);
-void shuffle(int *vet, int  MAX, int MIN);
 void printCarsDatabase(FILE *out);
 int compareCars(TCar *c1, TCar *c2);
 
 
-#endif //CAR_H_INCLUDED
+#endif //CARS_H_INCLUDED
