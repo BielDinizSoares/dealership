@@ -91,6 +91,12 @@ build CMakeFiles/dealership.dir/operations.c.o: C_COMPILER__dealership_unscanned
   OBJECT_DIR = CMakeFiles/dealership.dir
   OBJECT_FILE_DIR = CMakeFiles/dealership.dir
 
+build CMakeFiles/dealership.dir/bubbleSort.c.o: C_COMPILER__dealership_unscanned_Debug /home/gabriel/2024.2/CSI429/dealership/bubbleSort.c || cmake_object_order_depends_target_dealership
+  DEP_FILE = CMakeFiles/dealership.dir/bubbleSort.c.o.d
+  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles/dealership.dir
+  OBJECT_FILE_DIR = CMakeFiles/dealership.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target dealership
@@ -99,7 +105,7 @@ build CMakeFiles/dealership.dir/operations.c.o: C_COMPILER__dealership_unscanned
 #############################################
 # Link the executable dealership
 
-build dealership: C_EXECUTABLE_LINKER__dealership_Debug CMakeFiles/dealership.dir/main.c.o CMakeFiles/dealership.dir/car.c.o CMakeFiles/dealership.dir/client.c.o CMakeFiles/dealership.dir/sequentialSearch.c.o CMakeFiles/dealership.dir/BinarySearch.c.o CMakeFiles/dealership.dir/utils.c.o CMakeFiles/dealership.dir/operations.c.o
+build dealership: C_EXECUTABLE_LINKER__dealership_Debug CMakeFiles/dealership.dir/main.c.o CMakeFiles/dealership.dir/car.c.o CMakeFiles/dealership.dir/client.c.o CMakeFiles/dealership.dir/sequentialSearch.c.o CMakeFiles/dealership.dir/BinarySearch.c.o CMakeFiles/dealership.dir/utils.c.o CMakeFiles/dealership.dir/operations.c.o CMakeFiles/dealership.dir/bubbleSort.c.o
   FLAGS = -g
   OBJECT_DIR = CMakeFiles/dealership.dir
   POST_BUILD = :

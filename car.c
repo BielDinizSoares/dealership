@@ -5,6 +5,7 @@
 #include <math.h>
 #include <stdio.h>
 #include "utils.h"
+#include "bubbleSort.h"
 
 
 int car_register_size() {
@@ -95,7 +96,7 @@ void createCarsDatabase(FILE *out, int size){
         vet[i] = i+1;
     }
 
-    // shuffle(vet,size);
+    shuffle(vet,size);
 
     printf("\nGenerating cars database...\n");
 

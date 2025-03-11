@@ -9,6 +9,7 @@
 #include "utils.h"
 #include "sequentialSearch.h"
 #include "BinarySearch.h"
+#include "bubbleSort.h"
 
 int main() {
     const char *log_file1 = "General_log.txt";
@@ -28,8 +29,8 @@ int main() {
     }
 
     // 1 /2 - Entities and databases implementations
-    createCarsDatabase(file1, 10000);
-    create_clients_database(file2, 10000);
+    createCarsDatabase(file1, 10);
+    create_clients_database(file2, 100);
 
     // 3 / 4 - sequential searches
 
@@ -51,7 +52,7 @@ int main() {
     // }
 
     // 5 / 6 / 7 - binary searches
-    //turn shuffle off
+    // bubbleSortCarsDatabase(file1, cars_file_size(file1), &cont_cars, log_file4);
     // TCar *car = binary_search_car(5, file1,0,cars_file_size(file1), &cont_cars, log_file4);
     // if (car) {
     //     printf("Car founded: ID %d\n", car->id);
@@ -61,6 +62,7 @@ int main() {
     // }
     // printf("\n----------------------------------------------------------------\n");
     //
+    // bubbleSortClientsDatabase(file2, clients_file_size(file2), &cont_clients, log_file5);
     // TClient *client = binary_search_client(2, file2, 0, clients_file_size(file2), &cont_clients, log_file5);
     //
     // if (client) {
@@ -70,11 +72,12 @@ int main() {
     //     printf("Client not founded!\n");
     // }
 
-    // turn shuffle on
+
     // 8 - Relating entities
-    car_purchase(267, 983, file1, file2, log_file1);
-    TCar *car = sequentialSearchCar(983, file1, &cont_cars,&time_car, log_file2);
-    printCar(car);
+    // car_purchase(267, 983, file1, file2, log_file1);
+    // TCar *car = sequentialSearchCar(983, file1, &cont_cars,&time_car, log_file2);
+    // printCar(car);
+
 
 
     fclose(file1);

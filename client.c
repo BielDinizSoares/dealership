@@ -4,7 +4,7 @@
 #include <string.h>
 #include <math.h>
 #include <time.h>
-
+#include "bubbleSort.h"
 #include "utils.h"
 
 int client_register_size() {
@@ -68,7 +68,7 @@ void create_clients_database(FILE *out, int size) {
       vet[i] = i + 1;
     }
 
-    // shuffle(vet, size);
+    shuffle(vet, size);
     printf("\nGenerating clients database...\n");
 
     for (int i = 0; i < size; i++) {
