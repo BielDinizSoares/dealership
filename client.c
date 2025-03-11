@@ -5,6 +5,8 @@
 #include <math.h>
 #include <time.h>
 
+#include "utils.h"
+
 int client_register_size() {
     return sizeof(int)         // id
            + sizeof(char) * 50 // name
@@ -63,10 +65,10 @@ void create_clients_database(FILE *out, int size) {
     TClient *c;
 
     for (int i = 0; i < size; i++) {
-      vet[i] = i +1;
+      vet[i] = i + 1;
     }
-    //shuffle
 
+    // shuffle(vet, size);
     printf("\nGenerating clients database...\n");
 
     for (int i = 0; i < size; i++) {
@@ -101,6 +103,8 @@ int compareClients(TClient *c1, TClient *c2){
     }
     return 1;
 }
+
+
 
 
 

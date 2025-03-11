@@ -4,6 +4,7 @@
 #include "car.h"
 #include <math.h>
 #include <stdio.h>
+#include "utils.h"
 
 
 int car_register_size() {
@@ -11,7 +12,8 @@ int car_register_size() {
            + sizeof(double) //price
            + sizeof(char) * 50 //name
            + sizeof(char) * 20 //brand
-           + sizeof(double); //weight
+           + sizeof(double) //weight
+           + sizeof(int); // idOwner
 }
 
 // Creates car.
@@ -26,6 +28,7 @@ TCar *car(int id, double price, char *name, char *brand, double weight) {
     strcpy(car->name, name);
     strcpy(car->brand, brand);
     car->weight = weight;
+    car->idOwner = 0;
 
     return car;
 }
@@ -34,9 +37,10 @@ TCar *car(int id, double price, char *name, char *brand, double weight) {
 void saveCar(TCar *car, FILE *out) {
     fwrite(&car->id, sizeof(int), 1, out);
     fwrite(&car->price, sizeof(double), 1, out);
-    fwrite(car->name, sizeof(char), sizeof(car->name), out);
-    fwrite(car->brand, sizeof(char), sizeof(car->brand), out);
+    fwrite(car->name, sizeof(char), 50, out);
+    fwrite(car->brand, sizeof(char), 20, out);
     fwrite(&car->weight, sizeof(double), 1, out);
+    fwrite(&car->idOwner, sizeof(int), 1, out);
 }
 
 //returns the amount of registers
@@ -51,14 +55,15 @@ int cars_file_size(FILE *file) {
 
 TCar *readCar(FILE *in) {
     TCar *car = (TCar *) malloc(sizeof(TCar));
-    if (0 >= fread(&car->id, sizeof(int), 1, in)) {
+    if (fread(&car->id, sizeof(int), 1, in) < 1) {
         free(car);
         return NULL;
     }
     fread(&car->price, sizeof(double), 1, in);
-    fread(&car->name, sizeof(char), sizeof(car->name), in);
-    fread(&car->brand, sizeof(char), sizeof(car->brand), in);
+    fread(&car->name, sizeof(char), 50, in);
+    fread(&car->brand, sizeof(char), 20, in);
     fread(&car->weight, sizeof(double), 1, in);
+    fread(&car->idOwner, sizeof(int), 1, in);
     return car;
 }
 
@@ -71,10 +76,12 @@ void printCar(TCar *car) {
     printf("%s", car->name);
     printf("\nBrand: ");
     printf("%s", car->brand);
-    printf("Price: \n");
+    printf("\nPrice: ");
     printf("%4.2f", car->price);
     printf("\nWeight: ");
-    printf("%f", car->weight);
+    printf("%4.f", car->weight);
+    printf("\nIdOwner: ");
+    printf("%d", car->idOwner);
     printf("\n**********************************************");
 }
 
@@ -84,29 +91,20 @@ void createCarsDatabase(FILE *out, int size){
     int vet[size];
     TCar *c;
 
-    for(int i=0;i<size;i++)
+    for(int i=0;i<size;i++) {
         vet[i] = i+1;
+    }
 
-    // shuffle
+    // shuffle(vet,size);
 
     printf("\nGenerating cars database...\n");
 
     for (int i=0;i<size;i++){
         c = car(vet[i], 10000, "Focus", "Ford", 10000);
         saveCar(c, out);
+        free(c);
     }
 
-    free(c);
-}
-
-void shuffle(int *vet, int  MAX, int MIN) {
-    srand(time(NULL));
-    for (int i= MAX - MIN -1;i>0;i--) {
-        int j = rand() % (i);
-        int tmp = vet[j];
-        vet[j] = vet[i];
-        vet[i] = tmp;
-    }
 }
 
 void printCarsDatabase(FILE *out){
@@ -116,9 +114,11 @@ void printCarsDatabase(FILE *out){
     rewind(out);
     TCar *c;
 
-    while ((c = readCar(out)) != NULL)
+    while ((c = readCar(out)) != NULL) {
         printCar(c);
-    free(c);
+        free(c);
+    }
+
 }
 
 

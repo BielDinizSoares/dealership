@@ -7,73 +7,60 @@
 #include <time.h>
 #include <math.h>
 
-TCar *sequentialSearchCar(int key, FILE *in, int *cont, const char *log_file) {
+TCar *sequentialSearchCar(int key, FILE *in, int *cont,double *time_spent, const char *log_file) {
+        TCar *c = NULL;
+        *cont = 0;
+        rewind(in);
 
-    TCar *c;
-    int x;
+        clock_t start = clock();
+        while ((c = readCar(in)) != NULL) {
+            (*cont)++;
+            if (c->id == key) {
+                break;
+            }
+            free(c);
+            c = NULL;
+        }
+        clock_t end = clock();
+        *time_spent = (double)(end - start) / CLOCKS_PER_SEC;
+
+        FILE *log = fopen(log_file, "a");
+        if (log == NULL) {
+        printf("Error opening log file\n");
+        return NULL;
+        }
+        fprintf(log, "CAR | Key: %d, Time: %.6f, Comparisons: %d\n", key, *time_spent, *cont);
+        fclose(log);
+
+        return c;
+    }
+
+// sequentialSearch.c
+TClient *sequentialSearchClient(int key, FILE *in, int *cont, double *time_spent, const char *log_file) {
+    TClient *c = NULL;
+    *cont = 0;
     rewind(in);
 
-    clock_t start, end;
-    double time_spent;
-
-    start = clock();
-    while ((c = readCar(in)) != NULL){
+    clock_t start = clock();
+    while ((c = read_client(in)) != NULL) {
         (*cont)++;
-        if(c->id == key){
-            x = 1;
+        if (c->id == key) {
             break;
         }
+        free(c);
+        c = NULL;
     }
-    end = clock();
-    time_spent = (end-start)/(double)CLOCKS_PER_SEC;
+    clock_t end = clock();
+    *time_spent = (double)(end - start) / CLOCKS_PER_SEC;
 
+    // Log simplificado
     FILE *log = fopen(log_file, "a");
     if (log) {
-        fprintf(log, "Key: %d, Time of execution: %f seconds, Comparisons: %d\n", key, time_spent, *cont);
+        fprintf(log, "CLIENT | Key: %d, Time: %.6f, Comparisons: %d\n", key, *time_spent, *cont);
         fclose(log);
-    } else {
-        printf("Error! Could not open log file!\n");
     }
 
-    if(x == 1)
-        return c;
-    else printf("Car not found!\n");
 
-    free(c);
-}
-
-TClient *sequentialSearchClient(int key, FILE *in, int *cont, const char *log_file) {
-
-    TClient *c;
-    int x;
-    rewind(in);
-
-    clock_t start, end;
-    double time_spent;
-
-    start = clock();
-    while ((c = read_client(in)) != NULL){
-        (*cont)++;
-        if(c->id == key){
-            x = 1;
-            break;
-        }
-    }
-    end = clock();
-    time_spent = (end-start)/(double)CLOCKS_PER_SEC;
-
-    FILE *log = fopen(log_file, "a");
-    if (log) {
-        fprintf(log, "Key: %d, Time of execution: %f seconds, Comparisons: %d\n", key, time_spent, *cont);
-        fclose(log);
-    } else {
-        printf("Error! Could not open log file!\n");
-    }
-
-    if(x == 1)
-        return c;
-    else printf("CLient not found!\n");
-
-    free(c);
+    return c;
 }
 

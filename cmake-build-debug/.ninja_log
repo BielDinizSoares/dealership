@@ -1,3 +1,11 @@
 # ninja log v6
-0	29	1735248771931517278	CMakeFiles/dealership.dir/main.c.o	eaefd42b66c3c1ad
-29	48	1735248771963519300	dealership	638f87d36070672
+1	77	1738950049313065145	CMakeFiles/dealership.dir/car.c.o	a813f6658d439565
+45	65	1738952115246569560	dealership	89419a7c81f30c45
+1	45	1738952115202570479	CMakeFiles/dealership.dir/main.c.o	eaefd42b66c3c1ad
+1	21	1741694689715615539	build.ninja	da1975c81f1944ca
+1	58	1738592774768671419	CMakeFiles/dealership.dir/cars.c.o	9f1630985078b7f6
+2	39	1738950049317064013	CMakeFiles/dealership.dir/operations.c.o	ac888027433d0f1f
+1	57	1738950049313065145	CMakeFiles/dealership.dir/client.c.o	d815f4b5cc82d937
+0	94	1738678470166832110	CMakeFiles/dealership.dir/sequentialSearch.c.o	8195892894e0378f
+1	55	1738950049313065145	CMakeFiles/dealership.dir/BinarySearch.c.o	47a7aa9ec2c12b93
+2	45	1738613345744760876	CMakeFiles/dealership.dir/utils.c.o	d1d84ac676a256d2

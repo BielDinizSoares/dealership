@@ -7,7 +7,7 @@
 #include <math.h>
 #include <time.h>
 
-TCar *binary_search_car(int key, FILE *in, int start_search, int end_search, int *cont, const char *log_file) {
+TCar *binary_search_car(int key, FILE *in, int start_search, int end_search, int *cont, double *time, const char *log_file) {
 
     TCar *c = NULL;
     int code = -1;
@@ -19,7 +19,7 @@ TCar *binary_search_car(int key, FILE *in, int start_search, int end_search, int
         int half_search = trunc((start_search + end_search) / 2);
         printf("Start: %d; End: %d; Half:: %d\n", start_search, end_search, half_search);
         fseek(in, (half_search -1) * car_register_size(), SEEK_SET);
-        c = readCar(c);
+        c = readCar(in);
         (*cont)++;
 
         if (c) {
@@ -32,14 +32,14 @@ TCar *binary_search_car(int key, FILE *in, int start_search, int end_search, int
         }
     }
     end = clock();
-    double tempo = ((double)(end - start)) / CLOCKS_PER_SEC;
+    *time = ((double)(end - start)) / CLOCKS_PER_SEC;
 
     FILE *log = fopen(log_file, "a");
     if (log == NULL) {
         printf("Error opening log file\n");
         return NULL;
     }
-    fprintf(log, "Comparisons: %d , Time: %f , Key: %d \n", *cont, tempo, key);
+    fprintf(log, "Comparisons: %d , Time: %f , Key: %d \n", *cont, *time, key);
     fclose(log);
 
 
@@ -52,7 +52,7 @@ TCar *binary_search_car(int key, FILE *in, int start_search, int end_search, int
     }
 }
 
-TClient *binary_search_client(int key, FILE *in, int start_search, int end_search, int *cont, const char *log_file) {
+TClient *binary_search_client(int key, FILE *in, int start_search, int end_search, int *cont, double *time, const char *log_file) {
 
     TClient *c = NULL;
     int code = -1;
@@ -64,7 +64,7 @@ TClient *binary_search_client(int key, FILE *in, int start_search, int end_searc
         int half_search = trunc((start_search + end_search) / 2);
         printf("Start: %d; End: %d; Half:: %d\n", start_search, end_search, half_search);
         fseek(in, (half_search -1) * client_register_size(), SEEK_SET);
-        c = read_client(c);
+        c = read_client(in);
         (*cont)++;
 
         if (c) {
@@ -77,14 +77,14 @@ TClient *binary_search_client(int key, FILE *in, int start_search, int end_searc
         }
     }
     end = clock();
-    double tempo = ((double)(end - start)) / CLOCKS_PER_SEC;
+    *time = ((double)(end - start)) / CLOCKS_PER_SEC;
 
     FILE *log = fopen(log_file, "a");
     if (log == NULL) {
         printf("Error opening log file\n");
         return NULL;
     }
-    fprintf(log, "Comparisons: %d , Time: %f , Key: %d \n", *cont, tempo, key);
+    fprintf(log, "Comparisons: %d , Time: %f , Key: %d \n", *cont, *time, key);
     fclose(log);
 
 
