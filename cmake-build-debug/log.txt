@@ -1,0 +1,9 @@
+PURCHASE | Client 2 -> Car 9 | Total Time: 0.000067 | Total Comparisons: 12
+PURCHASE | Client 2 -> Car 9 | Total Time: 0.000052 | Total Comparisons: 12
+PURCHASE | Client 2 -> Car 9 | Total Time: 0.000075 | Total Comparisons: 12
+PURCHASE | Client 2 -> Car 9 | Total Time: 0.000055 | Total Comparisons: 12
+PURCHASE | Client 2 -> Car 9 | Total Time: 0.000066 | Total Comparisons: 12
+PURCHASE | Client 2 -> Car 9 | Total Time: 0.000057 | Total Comparisons: 12
+PURCHASE | Client 2 -> Car 9 | Total Time: 0.000061 | Total Comparisons: 12
+PURCHASE | Client 2 -> Car 9 | Total Time: 0.000070 | Total Comparisons: 12
+PURCHASE | Client 2 -> Car 9 | Total Time: 0.000053 | Total Comparisons: 12
