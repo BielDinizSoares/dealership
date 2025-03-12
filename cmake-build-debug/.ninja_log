@@ -1,12 +1,12 @@
 # ninja log v6
 1	39	1741695798061024472	CMakeFiles/dealership.dir/utils.c.o	d1d84ac676a256d2
-4	136	1741702226710618439	CMakeFiles/dealership.dir/bubbleSort.c.o	602c6f5ac56204c9
+3	587	1741725460290898999	CMakeFiles/dealership.dir/bubbleSort.c.o	602c6f5ac56204c9
 1	77	1741695661009015725	CMakeFiles/dealership.dir/BinarySearch.c.o	47a7aa9ec2c12b93
 1	73	1741695661009015725	CMakeFiles/dealership.dir/sequentialSearch.c.o	8195892894e0378f
-1	66	1741695798061024472	CMakeFiles/dealership.dir/client.c.o	d815f4b5cc82d937
+3	587	1741725460290898999	CMakeFiles/dealership.dir/client.c.o	d815f4b5cc82d937
 2	50	1741695798061024472	CMakeFiles/dealership.dir/operations.c.o	ac888027433d0f1f
 1	58	1738592774768671419	CMakeFiles/dealership.dir/cars.c.o	9f1630985078b7f6
-1	19	1741721199124055401	build.ninja	da1975c81f1944ca
-1	50	1741702288135327200	CMakeFiles/dealership.dir/main.c.o	eaefd42b66c3c1ad
-50	71	1741702288183327768	dealership	385ddc8d36f84dac
-3	142	1741702226710618439	CMakeFiles/dealership.dir/car.c.o	a813f6658d439565
+1	19	1741725546133877757	build.ninja	da1975c81f1944ca
+2	587	1741725460290898999	CMakeFiles/dealership.dir/main.c.o	eaefd42b66c3c1ad
+587	635	1741725460874891949	dealership	385ddc8d36f84dac
+3	587	1741725460290898999	CMakeFiles/dealership.dir/car.c.o	a813f6658d439565

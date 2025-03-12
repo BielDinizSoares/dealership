@@ -14,4 +14,6 @@ add_executable(dealership main.c car.c car.h client.c client.h
         operations.h
         bubbleSort.c
         bubbleSort.h
+        IClassification.c
+        IClassification.h
 )
