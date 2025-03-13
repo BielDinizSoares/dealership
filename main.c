@@ -30,8 +30,8 @@ int main() {
     }
 
     // 1 /2 - Entities and databases implementations
-    createCarsDatabase(file1, 10);
-    create_clients_database(file2, 10);
+    createCarsDatabase(file1, 1000);
+    create_clients_database(file2, 1000);
 
     // 3 / 4 - sequential searches
 
@@ -79,12 +79,13 @@ int main() {
     // TCar *car = sequentialSearchCar(983, file1, &cont_cars,&time_car, log_file2);
     // printCar(car);
 
-    bubbleSortCarsDatabase(file1, cars_file_size(file1), &cont_cars, log_file5);
+    // bubbleSortCarsDatabase(file1, cars_file_size(file1), &cont_cars, log_file5);
 
-    printCarsDatabase(file1);
+    // printCarsDatabase(file1);
 
-    int num_partitions = substitution_method_car(file1, 3);
+    int num_partitions = substitution_method_car(file1, 10);
     printf("\nNúmero de partições criadas: %d\n", num_partitions);
+
 
 
 
