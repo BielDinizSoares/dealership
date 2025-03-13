@@ -10,6 +10,7 @@
 #include "sequentialSearch.h"
 #include "BinarySearch.h"
 #include "bubbleSort.h"
+#include "partitionsMethods.h"
 
 int main() {
     const char *log_file1 = "General_log.txt";
@@ -19,8 +20,8 @@ int main() {
     const char *log_file5 = "Binary_search_client_log.txt";
     double time_car = 0, time_client = 0;
 
-    FILE *file1 = fopen("cars_database.dat", "w+b");
-    FILE *file2 = fopen("clients_database.dat", "w+b");
+    FILE *file1 = fopen("cars_database.dat", "wb+");
+    FILE *file2 = fopen("clients_database.dat", "wb+");
     int cont_cars = 0, cont_clients = 0;
 
     if (!file1 || !file2) {
@@ -30,7 +31,7 @@ int main() {
 
     // 1 /2 - Entities and databases implementations
     createCarsDatabase(file1, 10);
-    create_clients_database(file2, 100);
+    create_clients_database(file2, 10);
 
     // 3 / 4 - sequential searches
 
@@ -70,13 +71,20 @@ int main() {
     //     free(client);
     // } else {
     //     printf("Client not founded!\n");
-    // }
+    // }4
 
 
     // 8 - Relating entities
     // car_purchase(267, 983, file1, file2, log_file1);
     // TCar *car = sequentialSearchCar(983, file1, &cont_cars,&time_car, log_file2);
     // printCar(car);
+
+    bubbleSortCarsDatabase(file1, cars_file_size(file1), &cont_cars, log_file5);
+
+    printCarsDatabase(file1);
+
+    int num_partitions = substitution_method_car(file1, 3);
+    printf("\nNúmero de partições criadas: %d\n", num_partitions);
 
 
 
